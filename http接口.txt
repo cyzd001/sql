@@ -1,0 +1,360 @@
+
+二八杠
+入参：
+{
+	"playlist":[
+		{
+		"setNum":0,
+		"isDealer":1,   //1代表庄家  0代表闲家
+		"cards":[1,4]   //代表牌
+		}
+		{
+		"setNum":1,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[5,6]
+		}
+		{
+		"setNum":2,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[7,3]
+		}
+		{
+		"setNum":3,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[2,7]
+		}
+]	
+}
+出参：
+{
+	"result":[
+		{
+		"setNum":0,
+		"isDealer":1,   //1代表庄家  0代表闲家
+		"cards":[1,4]   //代表牌   
+		}
+		{
+		"setNum":1,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[5,6],
+		"winLose":“胜利”   //和庄家比牌结果
+		}
+		{
+		"setNum":2,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[7,3],
+		"winLose":“胜利”
+		}
+		{
+		"setNum":3,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[2,7],
+		"winLose":“胜利”
+		}
+]	
+}
+
+抢庄牛牛
+入参：
+{
+	"playlist":[
+		{
+		"setNum":0,
+		"isDealer":1,   //1代表庄家  0代表闲家
+		"cards":[]   //代表牌
+		}
+		{
+		"setNum":1,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[]
+		}
+		{
+		"setNum":2,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[]
+		}
+		{
+		"setNum":3,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[]
+		}
+]	
+}
+出参：
+{
+	"result":[
+		{
+		"setNum":0,
+		"isDealer":1,   //1代表庄家  0代表闲家
+		"cards":[1,4]   //代表牌
+   		"type": 14     // 0代表无牛，1代表牛一，依次类推，14代表五小牛 
+		}
+		{
+		"setNum":1,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[5,6],
+		"type": 14，
+		"winLose":“胜利”   //和庄家比牌结果
+		}
+		{
+		"setNum":2,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[7,3],
+		"type": 14
+		"winLose":“胜利”
+		}
+		{
+		"setNum":3,
+		"isDealer":0,   //1代表庄家  0代表闲家
+		"cards":[2,7],
+		"type": 14
+		"winLose":“胜利”
+		}
+]	
+}
+
+
+
+9668939237
+
+
+
+
+{
+	"sumInfo":{"bottomScore":20000},
+	"details":[{"playerInfo":[{"playerName":"至尊宝晏静","isDealer":"true","cards":[[9,10],[8,10]],"betAmount":null,"callAmount":null,"winLose":19.40},
+	{"playerName":"虎头映阳","isDealer":"false","cards":[[8,10],[3,10]],"betAmount":null,"callAmount":null,"winLose":-20.00}]}]}
+
+{"sumInfo":{"bottomScore":1000},
+"details":[{"playerInfo":[
+{"playerName":"曾圣中恶","isDealer":"true","cards":[[4,10],[4,10]],"betAmount":null,"callAmount":null,"winLose":0.95},
+{"playerName":"虎头映阳","isDealer":"false","cards":[[1,10],[0,10]],"betAmount":null,"callAmount":null,"winLose":-1.00}]}]}
+
+{"sumInfo":{"bottomScore":1000},
+"details":[{"playerInfo":
+[{"playerName":"曾圣中恶","isDealer":"true","cards":[[7,10],[5,10]],"betAmount":null,"callAmount":null,"winLose":-57.00},
+{"playerName":"虎头映阳","isDealer":"false","cards":[[6,10],[0,10]],"betAmount":null,"callAmount":null,"winLose":0.95}]}]}
+
+@ibot deploy  抢庄牛牛-测试
+@ibot deploy  二八杠-测试
+https://ops.huihuang200.com/api/ansible/ibot
+查看抢庄牛牛的日志
+tail -f /home/deploy/www/test-jar-grabbullfight-server/current/niuzhuang_logs/info/infoLog.log
+tail -f /home/loguser/logs/niuZ/info/infoLog.log
+
+#查询会员余额信息
+select * from tb_acc_account a RIGHT JOIN tb_acc_account_info b on a.id = b.account_id where a.account in ("ley996","ley997","ley998","ley999","xx0001","xx0002");
+
+#查询游戏id
+select * from tb_game where game_name in ("抢庄牛牛","二八杠","欢乐30秒");
+
+9667892269   wechelietou88886666    127.0.0.1:6153
+#查询游戏记录
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id = 8 and site_id=36979 and account = "xx0001" order by create_date desc;   --查看欢乐30秒的游戏记录
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id = 9 and site_id=36979 and account = "xx0001" order by create_date desc;   --查看抢庄牛牛的游戏记录
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id = 24 and site_id=36979 and account = "xx0001" order by create_date desc;   --查看二八杠的游戏记录
+select * from micro_game.tb_game_record_2019_4 where game_id = 24 order by create_date desc;
+select count(1) from micro_game.tb_game_record_2019_4 where game_id = 24 and site_id=36979 and account = "xx0001" order by create_date desc;   --查看二八杠的游戏记录
+
+
+#查询游戏房间配置
+select a.id,a.game_name,a.room_name,a.room_persons,a.min_money,a.room_field,a.charge_value,a.room_status,b.start_time,b.call_time,b.shot_time from micro_account.tb_game_room a LEFT JOIN micro_account.tb_game_room_configuration_doudizhu b on a.id = b.game_room_id where a.game_name ="欢乐30秒" and a.site_id=36979;   --查看欢乐30秒房间配置
+select a.id,a.game_name,a.room_name,a.room_persons,a.min_money,a.room_field,a.charge_value,a.room_status,b.start_time,b.call_time,b.shot_time from micro_account.tb_game_room a LEFT JOIN micro_account.tb_game_room_configuration_doudizhu b on a.id = b.game_room_id where a.game_name = "抢庄牛牛" and a.site_id=36979;   --查看抢庄牛牛房间配置
+select a.id,a.game_name,a.room_name,a.room_persons,a.min_money,a.room_field,a.charge_value,a.room_status,b.start_time,b.call_time,b.shot_time from micro_account.tb_game_room a LEFT JOIN micro_account.tb_game_room_configuration_doudizhu b on a.id = b.game_room_id where a.game_name = "二八杠" and a.site_id=36979;   --查看二八杠房间配置
+
+
+{"goal":160000,"totalIn":100000,"win":60000,"winer":[3],
+"isDealer":"false","pokerVo":{"xian":[[3,1],[1,6]],
+"zhuang":[[0,5],[3,11],[3,2]]},"detail":
+[{"betTarget":1,"total":20000,"me":20000,"win":false},
+{"betTarget":2,"total":5000,"me":5000,"win":false},
+{"betTarget":3,"total":15000,"me":15000,"win":false},
+{"betTarget":4,"total":40000,"me":40000,"win":false},
+{"betTarget":5,"total":20000,"me":20000,"win":false}]}
+
+{"sumInfo":{"bottomScore":20000},"details":[{"playerInfo":
+[{"playerName":"炸弹宝莹","isDealer":"true","cards":[[8,10],[6,10]],"betAmount":null,"callAmount":null,"winLose":-20000},
+{"playerName":"豪赌成礼","isDealer":"false","cards":[[-1,10],[-1,10]],"betAmount":null,"callAmount":null,"winLose":19000},
+{"playerName":"虎头映阳","isDealer":"false","cards":[[6,10],[4,10]],"betAmount":null,"callAmount":null,"winLose":-20000},
+{"playerName":"托蛹硬根拾","isDealer":"false","cards":[[5,10],[2,10]],"betAmount":null,"callAmount":null,"winLose":19000}]}]}
+
+
+珠盘路，大路，大眼仔，小路，曱甴（yueyou）路或“小强”路
+
+#查询会员余额信息
+select * from tb_acc_account a RIGHT JOIN tb_acc_account_info b on a.id = b.account_id where a.account like "xx00%"
+select * from tb_rebate_data where  account in ("xx0001","xx0002","xx0003");
+
+#查询游戏id
+select * from tb_game where game_name in ("抢庄牛牛","二八杠","欢乐30秒");
+
+9667892269   wechelietou88886666    127.0.0.1:6153    
+#查询游戏记录  129321  129328   185404
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id = 8 and site_id=185404 and account = "xx0001" order by create_date desc;   --查看欢乐30秒的游戏记录
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id = 9 and site_id=129321 and account = "xx0003" order by create_date desc;   --查看抢庄牛牛的游戏记录
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id = 24 and site_id=185404 and account = "xx0001" order by create_date desc;   --查看二八杠的游戏记录
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id = 9 order by create_date desc;
+select * from micro_game.tb_game_record_2019_4 where game_id in(24) and site_id=129328 and account = "xx0001" order by create_date desc;   --查看二八杠的游戏记录
+select sum(bet_amount),sum(charge_value) from micro_game.tb_game_record_2019_4 where game_id in(24) and site_id=129328 and create_date between"2019-04-26 00:00:00" and "2019-04-27 00:00:00";   --计算对应游戏的总下注额
+select account,change_amount,money,charge_value,bet_amount,award_amount,total_bet,create_date from micro_game.tb_game_record_2019_4 where game_id in(24) and site_id=129328 and create_date between"2019-04-26 00:00:00" and "2019-04-27 00:00:00";   --计算对应游戏的总下注额
+
+
+#查询游戏房间配置
+select a.id,a.game_name,a.room_name,a.room_persons,a.min_money,a.room_field,a.bottom_red1,a.bottom_red2,a.charge_value,a.room_status,b.start_time,b.call_time,b.shot_time from micro_account.tb_game_room a LEFT JOIN micro_account.tb_game_room_configuration_doudizhu b on a.id = b.game_room_id where a.game_name ="欢乐30秒" and a.site_id=36979;   --查看欢乐30秒房间配置
+select a.id,a.game_name,a.room_name,a.room_persons,a.min_money,a.room_field,a.charge_value,a.room_status,b.start_time,b.call_time,b.shot_time from micro_account.tb_game_room a LEFT JOIN micro_account.tb_game_room_configuration_doudizhu b on a.id = b.game_room_id where a.game_name = "抢庄牛牛" and a.site_id=129328;   --查看抢庄牛牛房间配置
+select a.id,a.game_name,a.room_name,a.room_persons,a.min_money,a.room_field,a.charge_value,a.room_status,b.start_time,b.call_time,b.shot_time from micro_account.tb_game_room a LEFT JOIN micro_account.tb_game_room_configuration_doudizhu b on a.id = b.game_room_id where a.game_name = "二八杠" and a.site_id=36979;   --查看二八杠房间配置
+
+#查看单控
+select * from micro_account.tb_single_control where account in("xx0002","xx0003");
+select * from micro_account.tb_single_control_log where account in("xx0003","xx0004","ley995") order by create_date desc;
+select a.id,b.account,a.money from micro_account.tb_user a left join micro_account.tb_acc_account b on a.id = b.id where b.account="xx0004";
+SELECT * from micro_account.tb_user ORDER BY left_control_money;
+select b.account as "账号",a.id as "会员id",b.win_rate_battle_bet as "单控胜率",b.win_lose as "单控金额",a.left_control_money as "单控剩余金额" from tb_user a RIGHT JOIN tb_single_control b on a.id = b.id where b.account in("xx0001","xx0002","xx0003","xx0004","xx0005","xx0006");
+select * from tb_user where id=129424;
+#查看房间库存
+select a.site_id,a.game_name,a.room_name,b.storage1,b.storage2,a.sum_stock_weak,a.stock_weak,b.attenuation from tb_game_room a left join tb_game_room_storage b on a.id = b.id where a.site_id=185404 and a.game_id=24;
+
+ left_control_money
+ select b.account,a.money,a.win,a.left_control_money from tb_user a left JOIN tb_acc_account b on a.id = b.id where b.account = "ley996";
+ 
+ 
+ #游戏状态
+ select game_id,status from tb_site_game where site_id=36979 and game_id=8;
+ select status from tb_site_game where site_id=36979 group by `status`;
+ 
+ 
+ 
+ 
+ 
+ #游戏状态
+ select game_id,status from tb_site_game where site_id=36979 and game_id=8;
+ select status from tb_site_game where site_id=36979 group by `status`;
+
+{"goal":940000,"totalIn":150000,"win":790000,"winer":[2,4,5],"isDealer":"false","pokerVo":
+{"xian":[[1,8],[3,8]],"zhuang":[[0,11],[0,11],[3,11]]},
+"detail":[{"betTarget":1,"total":20000,"me":20000,"win":false},
+{"betTarget":2,"total":50000,"me":50000,"win":false},
+{"betTarget":3,"total":10000,"me":10000,"win":false},
+{"betTarget":4,"total":30000,"me":30000,"win":false},
+{"betTarget":5,"total":40000,"me":40000,"win":false}]}
+
+netstat -ntpl   
+ps -ef | grep java
+
+
+{"goal":519000,"totalIn":150000,"win":369000,"winer":[1,5],"isDealer":"false","pokerVo":
+{"xian":[[3,7],[2,11]],"zhuang":[[1,5],[3,12],[1,7]]},"detail":
+[{"betTarget":1,"total":20000,"me":20000,"win":false},
+{"betTarget":2,"total":50000,"me":50000,"win":false},
+{"betTarget":3,"total":10000,"me":10000,"win":false},
+{"betTarget":4,"total":30000,"me":30000,"win":false},
+{"betTarget":5,"total":40000,"me":40000,"win":false}]}
+
+-2171.56
+{"callType":null,"betOdds":null,"anteAmount":3000,"patterns":
+[{"nickName":"阙赌圣初蓝","pokers":[[2,1],[1,2],[3,12]],"isDealer":"true","odds":1,"betOdds":0,"callType":1,"winCoins":22800},
+{"nickName":"闾丘柔淑","pokers":[[3,3],[1,9],[0,11]],"isDealer":"false","odds":1,"betOdds":1,"callType":1,"winCoins":-3000},
+{"nickName":"高鱼弘厚","pokers":[[1,6],[0,8],[2,13]],"isDealer":"false","odds":1,"betOdds":2,"callType":0,"winCoins":5700},
+{"nickName":"赌朋思松","pokers":[[2,10],[3,10],[1,11]],"isDealer":"false","odds":1,"betOdds":9,"callType":0,"winCoins":-27000}]}
+
+百家乐的之前你说庄赢是算有效下注，闲赢是不算有效下注，现在还是这样吗。因为赢的赔付是0.95
+
+
+百家乐有效下注，特殊情况：玩家在庄闲对等下注，比如各下20，庄赢是算有效下注40，闲赢算0
+
+http://10.19.44.15:7456/
+
+进入游戏消息
+ 
+msgType: "6001"
+roomNum: 2094
+roomType: 4
+chipInAmount: "[{"chipPoolIndex":"3","chipValue":1}]"
+msgType: "6007"
+token: "登陆的时候从服务器获取到的"
+uniqueId: "登陆的时候从服务器获取到的(站点id_用户账户) 比如：19995_aaa111"
+
+Madman1993_
+
+1.熟悉测试流程，测试方法，测试用例设计等，能够独立编写测试用例和测试
+2.掌握测试计划，测试方案书写，独立完成上级分配的测试任务
+3.熟悉数据库mysql，oracle，掌握数据库的增删改查，内外连接，索引，库存过程等
+4.了解linux系统，掌握常用linux命令，能够搭建测试环境，会抓取服务端日志，具有日志分析和定位能力
+5.掌握一门脚本语言，如python，perl，能够独立编写脚本，
+6.有接口和前端项目的自动化经验，了解常用的自动化测试框架，例如unittest，junit等，
+7.熟悉性能测试流程，会使用性能测试工具，如jmeter，loadrunner等，有具体项目经验
+8.乐观，积极的心态，热爱测试工作，有游戏测试经验优先考虑
+
+
+1、必须掌握测试方面的理论知识。这点很重要，是首要基础。
+2、具备编写程序的能力。不会写代码，发现了bug无法找到问题的根源也无法调试。
+3、懂得网络方面的基础知识。这个主要是安全测试做准备。
+4、必须掌握数据库方面的知识。这个是必须要掌握的。
+5、懂一些底层的方面的知识。6、心要静、细心耐心、责任心。心静不下来无法对bug展开发向思维及拓展想像。
+7、测试工具不仅会用而且要精通。功能自动化测试和性能测试必须要掌握一个工具。
+8、具备写作能力和表达能力。写作能力主要用于写test case或提交bug ,表达清楚开发人员或执行用例的人一看就懂。
+
+
+
+第二，你要了解软件的方方面面。比如基础知识上要懂：类，指针，堆，栈，结构体，多态，
+重载，文件，socket，编译，链接，交叉编译，静态编译，动态编译，回调，svn，git，
+内存溢出，线程，进程，内存碎片，数组越界，二叉树，动态规划，信号量，锁，加密，
+对称和非对称加密，摘要算法，签名，证书，shell操作，数据库操作等等等。
+
+172.20.100.71/172.20.100.68:8080
+http://lobby.huihuang600.com/register/accountLogon
+http://172.20.100.68:8080/register/accountLogon
+{
+account: "ley999"
+deviceCode: "2d4adf36-99e7-4b7c-a37f-cf38968a9284"
+deviceType: "Windows"
+ip: "0.0.0.0"
+key: "0"
+msgType: "1003"
+password: "45a6b949d7e690693728a68ccfb9c022"
+siteId: 36979
+verificationCode: ""
+}
+https://docs.google.com/spreadsheets/d/1r733aAFYNtOx4FH7h2cYgIjCb6XoY3KG5wxMh20MCZ0/edit#gid=0
+
+ssh loguser@172.20.100.26
+
+二八杠-预发布 - pre-jar-twoeight-server
+
+
+user：test
+pass：Fei.(lV)-bin.1234!
+172.20.100.252
+预发布/数据库
+
+http://lobby.huihuang200.com/register/register
+
+account: "xx0001"
+confirmPassword: "ffa0e78479bc2ace9cee3e151d379f03"
+deviceCode: "e9a3fe48-346e-491a-882c-bd0ee4dcffc6"
+deviceType: "Windows"
+ip: "116.50.239.103"
+key: "e9a3fe48-346e-491a-882c-bd0ee4dcffc6"
+msgType: "1002"
+password: "ffa0e78479bc2ace9cee3e151d379f03"
+phoneNumber: ""
+recommender: ""
+register: true
+siteId: 36979
+verificationCode: "3141"
+
+
+http://lobby.huihuang200.com/register/accountLogon
+
+account: "xx0001"
+deviceCode: "e9a3fe48-346e-491a-882c-bd0ee4dcffc6"
+deviceType: "Windows"
+ip: "116.50.239.103"
+key: "0"
+msgType: "1003"
+password: "ffa0e78479bc2ace9cee3e151d379f03"
+siteId: 36979
+verificationCode: ""
+
+
+lobby.huanle001.com
